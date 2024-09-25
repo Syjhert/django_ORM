@@ -3,6 +3,9 @@ from .models import Book
 from .forms import BorrowedBookForm
 
 # Create your views here.
+def home(request):
+    return render(request, 'books/home.html')
+
 def book_list(request):
     books = Book.objects.all
     if request.method == 'POST':
