@@ -10,14 +10,14 @@
     <ul>
         {% for book in books %}
         <li>
-            {{ book.title }} by {{ book.author.name}}
+            <h2>{{ book.title }}</h2> <h4> by {{ book.author.name}}</h4>
             {% if book.borrowed_by %}
             - Borrowed by: {{ book.borrowed_by }} (Due: {{ book.due_date }})
             {% else %}
             <form method="post">
                 {% csrf_token %}
                 <input type="hidden" name="book_id" value="{{ book.id }}">
-                {{ form.borrowed_by }} {{ form.due_date }}
+                Your name:{{ form.borrowed_by }} Returned date: {{ form.due_date }}
                 <button type="submit">Borrow</button>
             </form>
             {% endif %}
